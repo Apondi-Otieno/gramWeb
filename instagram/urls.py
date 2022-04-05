@@ -12,7 +12,7 @@ urlpatterns = [
     path("logout", views.logout_request, name= "logout"),
     path("profile", views.profile,name = "profile"),
     path("post", views.post, name="post"),
-    path("edit", views.edit,name = "edit"),
+    # path("edit", views.edit,name = "edit"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
