@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/homepage/">Home</a>
+    <a> <img src="#" width="30" height="30" class="d-inline-block align-top" alt="">
+        Instagram
+    </a>
+
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="False" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            {% if user.is_authenticated %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Hey there, {{user.username}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link ml-4" href="{%url 'post'%}"><i class="fa fa-plus-square"
+                        aria-hidden="true"></i>New Post</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link ml-4" href="{%url 'profile'%}"><i class="fa fa-address-card"
+                        aria-hidden="true"></i>View Profile</a>
+            </li>
+
+
+
+
+            {% else %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+
+            {% endif %}
+        </ul>
+    </div>
+</nav>
