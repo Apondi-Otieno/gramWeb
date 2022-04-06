@@ -93,7 +93,7 @@ def login_request(request):
         else:
             messages.error(request, "Invalid username or password.")
     form = AuthenticationForm()
-    return render(request=request, template_name="ig/login.html", context={"login_form": form})
+    return render(request=request, template_name="gram/login.html", context={"login_form": form})
 
 
 def logout_request(request):
@@ -127,7 +127,7 @@ def profile(request):
 
         }
 
-    return render(request, 'ig/profile.html', context)
+    return render(request, 'gram/profile.html', context)
 
 
 @login_required(login_url='login')
@@ -145,7 +145,7 @@ def user_profile(request, username):
             if_follow = False
 
     print(followers)
-    return render(request, 'ig/posts.html', {'user_poster': user_poster, 'followers': followers, 'if_follow': if_follow, 'user_posts': user_posts})
+    return render(request, 'gram/posts.html', {'user_poster': user_poster, 'followers': followers, 'if_follow': if_follow, 'user_posts': user_posts})
 
 
 def post(request):
@@ -163,7 +163,7 @@ def post(request):
 
     else:
         form = NewPostForm()
-    return render(request, 'ig/post.html', {"form": form})
+    return render(request, 'gram/post.html', {"form": form})
 
 
 @login_required(login_url='login')
@@ -190,7 +190,7 @@ def edit_profile(request):
 
         }
 
-    return render(request, 'ig/edit_profile.html', context)
+    return render(request, 'gram/edit_profile.html', context)
 
 
 @login_required(login_url='login')
@@ -210,7 +210,7 @@ def comment(request, id):
     else:
         form = CommentForm()
 
-    return render(request, 'ig/post.html', {'post': image, 'form': form, 'comment_content': comment_content})
+    return render(request, 'gram/post.html', {'post': image, 'form': form, 'comment_content': comment_content})
 
 
 @login_required(login_url='login')
@@ -222,6 +222,6 @@ def search(request):
         results = User.objects.filter(username__icontains=search_term)
         print(results)
 
-        return render(request, 'ig/search.html', locals())
+        return render(request, 'gram/search.html', locals())
 
     return redirect('homepage')
