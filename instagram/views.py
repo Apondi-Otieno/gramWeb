@@ -14,7 +14,7 @@ from django.http import HttpResponseRedirect
 
 
 @login_required(login_url='login/')
-def homepage(request):
+def home(request):
     posts = Post.all_posts()
     json_posts = []
     profiles = Profile.objects.all()
@@ -87,7 +87,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("homepage")
+                return redirect("home")
             else:
                 messages.error(request, "Invalid username or password.")
         else:
