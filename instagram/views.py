@@ -53,7 +53,7 @@ def homepage(request):
             comment.username = request.user
             comment.post = post
             comment.save()
-        return redirect('homepage')
+        return redirect('home')
 
     else:
         form = CommentForm()
