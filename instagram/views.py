@@ -159,7 +159,7 @@ def post(request):
 
             image.save()
 
-        return redirect('homepage')
+        return redirect('home')
 
     else:
         form = NewPostForm()
@@ -178,7 +178,7 @@ def edit_profile(request):
             user_form.save()
             profile_form.save()
 
-            return redirect('homepage')
+            return redirect('home')
 
     else:
         user_form = UserUpdateForm(instance=request.user)
@@ -224,4 +224,4 @@ def search(request):
 
         return render(request, 'gram/search.html', locals())
 
-    return redirect('homepage')
+    return redirect('home')
