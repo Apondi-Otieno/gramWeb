@@ -1,0 +1,31 @@
+{% extends 'ig/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+    <div class="">
+        <div class="row justify-content-center">
+            {% load crispy_forms_tags %}
+            <div class="col-md-3 m-5">
+                <div class="">
+                    {% load static %}
+                    <img src="https://ucarecdn.com/20a4c25f-4574-40e3-8a50-e17601c0a724/" alt="" class="screen-image">
+                </div>
+            </div>
+            <!--Register-->
+            <div class="card my-5">
+                <div class="m-5">
+                    <div class="card-title">
+                        <h1 class="text-center" style="font-family: 'Lobster Two', cursive;">
+                            Instagram
+                        </h1>
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ register_form|crispy }}
+                        <button class="btn btn-primary" type="submit">Register</button>
+                    </form>
+                    <p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
