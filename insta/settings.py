@@ -54,9 +54,9 @@ INSTALLED_APPS = [
 ]
 
 cloudinary.config(
-    cloud_name=dq31ilt8g
-    api_key=579444151947789
-    api_secret=trOtiRRw_roRrKNCPy3IS-ZSEPg 
+    cloud_name= "dq31ilt8g",
+    api_key= "579444151947789",
+    api_secret= "trOtiRRw_roRrKNCPy3IS-ZSEPg", 
 )
 
 
